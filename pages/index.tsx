@@ -1,11 +1,26 @@
+import { useContext, useEffect } from "react";
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import { CatalogContext } from "@/context";
+import { GetStaticProps } from "next";
+import { asosApi } from "@/api";
+import { ProductsResponse, ProductsResponseProduct } from "@/interfaces";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+interface Props {
+  products: ProductsResponseProduct[];
+} 
+
+export default function Home({ products }: Props) {
+  const { getProducts } = useContext(CatalogContext)
+
+  useEffect(() => {
+    getProducts(products)
+  }, [])
+  
   return (
     <>
       <Head>
@@ -121,3 +136,31 @@ export default function Home() {
     </>
   )
 }
+
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+
+  const options = {
+    url: '/products/v2/list',
+    params: {
+      store: 'US',
+      offset: '0',
+      categoryId: '4208',
+      limit: '10',
+      country: 'US',
+      sort: 'freshness',
+      currency: 'USD',
+      sizeSchema: 'US',
+      lang: 'en-US'
+    }
+  };
+
+  // Modify endpoint so that you can get all the contacts and thus take full advantage of the static props of next js
+  const { data } = await asosApi.get<ProductsResponse>(`${options.url}`, { params: options.params });
+  
+  return {
+    props: {
+      products: data.products
+    },
+  };
+};
