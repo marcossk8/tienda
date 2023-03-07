@@ -1,9 +1,10 @@
 import axios from "axios";
+import { ASOS_API, X_RAPIDAPI_HOST, X_RAPIDAPI_KEY } from "./configEnv";
 
 export const asosApi = axios.create({
-    baseURL: 'https://asos2.p.rapidapi.com',
+    baseURL: ASOS_API,
     headers: {
-        'X-RapidAPI-Key': '90cfba68d3mshc2390ae1766da0bp1f4fb4jsn545ef070cd9b',
-        'X-RapidAPI-Host': 'asos2.p.rapidapi.com',
+        'X-RapidAPI-Key': X_RAPIDAPI_KEY,
+        'X-RapidAPI-Host': X_RAPIDAPI_HOST,
     },
 });
