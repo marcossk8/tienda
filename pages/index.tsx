@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import { asosApi } from "@/api";
 import { ProductsResponse, ProductsResponseProduct } from "@/interfaces";
 import { Layout } from "@/components/layouts";
-import { NavBarFilters } from "@/components/ui";
+import { Catalog, NavBarFilters } from "@/components/ui";
 interface Props {
   products: ProductsResponseProduct[];
 } 
@@ -19,6 +19,7 @@ export default function Home({ products }: Props) {
   return (
     <Layout title="Catalog of products">
       <NavBarFilters></NavBarFilters>
+      <Catalog />
     </Layout>
   )
 }

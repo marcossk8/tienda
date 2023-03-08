@@ -12,7 +12,6 @@ interface Props {
     icon: boolean;
     size: 'small' | 'medium' | undefined;
     id?: string;
-    fullWidth?: boolean;
     onChange: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
     sx?: SxProps<Theme>
 }
@@ -26,7 +25,6 @@ export const TextFieldSearch = ({
     value,
     onChange,
     id,
-    fullWidth,
     sx
 }: Props) => {
     return (
@@ -46,7 +44,6 @@ export const TextFieldSearch = ({
                     </InputAdornment>
                 ),
             }}
-            fullWidth={fullWidth}
         />
     )
 }

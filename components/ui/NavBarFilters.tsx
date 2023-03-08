@@ -1,4 +1,4 @@
-import { Box } from '@mui/system'
+import { Box } from '@mui/material'
 import { useState } from 'react'
 import { ButtonGroupFilter } from './ButtonGroupFilter'
 import { TextFieldSearch } from './TextFieldSearch'
@@ -16,6 +16,8 @@ export const NavBarFilters = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                flexDirection: {xs: 'column-reverse', sm: 'column-reverse', md: 'row'}
             }}
         >
             <TextFieldSearch
@@ -26,8 +28,7 @@ export const NavBarFilters = () => {
                 size="small"
                 onChange={handleChangeSearch}
                 icon
-                fullWidth
-                sx={{ width: 500 }}
+                sx={{ width: {xs: 260, sm: 400, md: 500}, marginTop: {xs: 2, sm: 2, md: 0} }}
             />
 
             <ButtonGroupFilter />
