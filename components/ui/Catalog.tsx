@@ -1,7 +1,7 @@
-import { useContext } from 'react'
-import { CatalogContext } from '@/context'
-import { ProductCard } from './ProductCard'
-import { Box } from '@mui/material'
+import { useContext } from 'react';
+import { CatalogContext } from '@/context';
+import { ProductCard } from './ProductCard';
+import { Box } from '@mui/material';
 
 export const Catalog = () => {
     const { products, isLoading } = useContext(CatalogContext)

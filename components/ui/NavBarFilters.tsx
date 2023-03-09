@@ -1,15 +1,8 @@
-import { Box } from '@mui/material'
-import { useState } from 'react'
-import { ButtonGroupFilter } from './ButtonGroupFilter'
-import { TextFieldSearch } from './TextFieldSearch'
+import { Box } from '@mui/material';
+import { ButtonGroupFilter } from './ButtonGroupFilter';
+import { TextFieldSearch } from './TextFieldSearch';
 
 export const NavBarFilters = () => {
-    const [searchValue, setSearchValue] = useState("")
-
-    const handleChangeSearch = () => {
-      
-    }
-
     return (
         <Box
             sx={{
@@ -24,11 +17,9 @@ export const NavBarFilters = () => {
                 placeholder="Buscar"
                 name="search"
                 id="search"
-                value={searchValue}
                 size="small"
-                onChange={handleChangeSearch}
                 icon
-                sx={{ width: {xs: 260, sm: 400, md: 500}, marginTop: {xs: 2, sm: 2, md: 0} }}
+                sx={{ width: {xs: '100%', sm: 400, md: 500}, marginTop: {xs: 2, sm: 2, md: 0} }}
             />
 
             <ButtonGroupFilter />

@@ -1,18 +1,17 @@
-import { ChangeEventHandler } from 'react';
+import { ChangeEvent, useContext, useRef } from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import { Search } from '@mui/icons-material';
 import { SxProps, Theme } from '@mui/material';
+import { CatalogContext } from '@/context';
 
 interface Props {
-    label?: string
+    label?: string;
     placeholder?: string;
     name: string;
-    value: string;
     icon: boolean;
     size: 'small' | 'medium' | undefined;
     id?: string;
-    onChange: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
     sx?: SxProps<Theme>
 }
 
@@ -22,17 +21,34 @@ export const TextFieldSearch = ({
     name,
     icon = true,
     size = 'small',
-    value,
-    onChange,
     id,
     sx
 }: Props) => {
+
+    const { prevProducts, sortOrFilterProducts } = useContext(CatalogContext)
+    const debounceRef = useRef<NodeJS.Timeout>()
+
+    const handleChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+        if (debounceRef.current) clearTimeout(debounceRef.current)
+
+        debounceRef.current = setTimeout(() => {
+            const value = event.target.value?.toLowerCase()
+            const products = prevProducts.filter(
+                (item) =>
+                    item.brandName.toLowerCase().includes(value) ||
+                    item.name.toLowerCase().includes(value) ||
+                    item.colour.toLowerCase().includes(value) ||
+                    `${item.price.current.value}`.includes(value)
+            )
+            sortOrFilterProducts(products)
+        }, 350)
+    }
+
     return (
         <TextField
             label={label}
             name={name}
-            value={value}
-            onChange={onChange}
+            onChange={handleChangeSearch}
             size={size}
             id={id}
             placeholder={placeholder}

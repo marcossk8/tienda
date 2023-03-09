@@ -5,7 +5,7 @@ import { CatalogContext } from '@/context';
 import { orderProducts } from '@/utilities';
 
 export const ButtonGroupFilter = () => {
-    const { products, getProducts } = useContext(CatalogContext)
+    const { products, sortOrFilterProducts } = useContext(CatalogContext)
 
     const handleSortPrice = (key: 'minor' | 'major') => {
         products.sort((a, b) => {
@@ -13,7 +13,7 @@ export const ButtonGroupFilter = () => {
             const bAux = b.price.current.value || 0
             return orderProducts[key].func(aAux, bAux)
         })
-        getProducts(products)
+        sortOrFilterProducts(products)
     }
 
     return (

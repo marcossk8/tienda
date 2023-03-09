@@ -1,4 +1,4 @@
-import { Button, CardActions } from '@mui/material'
+import { Button, CardActions } from '@mui/material';
 
 export const ProductCardActions = () => {
     return (

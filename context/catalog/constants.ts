@@ -1,1 +1,2 @@
-export const GET_CATALOG = "GET_CATALOG";
+export const GET_CATALOG = 'GET_CATALOG';
+export const SORT_OR_FILTER_CATALOG = 'SORT_OR_FILTER_CATALOG';

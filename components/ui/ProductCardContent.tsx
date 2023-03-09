@@ -1,4 +1,4 @@
-import { CardContent, Typography } from '@mui/material'
+import { CardContent, Typography } from '@mui/material';
 
 interface Props {
     brandName: string;

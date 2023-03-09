@@ -6,3 +6,4 @@ export * from './ProductCard';
 export * from './ProductCardMedia';
 export * from './ProductCardContent';
 export * from './ProductCardActions';
+export * from './NoResultsFound';
