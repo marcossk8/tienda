@@ -17,7 +17,16 @@ export const ProductCardContent = ({
 }: Props) => {
     return (
         <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography 
+                gutterBottom 
+                variant="h5" 
+                component="div"
+                sx={{
+                    overflow: 'hidden',
+                    whiteSpace: 'nowrap',
+                    textOverflow: 'ellipsis',
+                }}
+            >
                 {brandName}
             </Typography>
             <Typography
