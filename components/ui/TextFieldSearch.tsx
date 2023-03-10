@@ -3,7 +3,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import { Search } from '@mui/icons-material';
 import { SxProps, Theme } from '@mui/material';
-import { CatalogContext } from '@/context';
+import { CatalogContext } from '../../context';
 
 interface Props {
     label?: string;

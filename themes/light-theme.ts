@@ -11,6 +11,9 @@ export const lightTheme = createTheme({
     },
     secondary: {
       main: "#a8a8a8",
+    },
+    error: {
+      main: '#dc817e'
     }
   }
 });

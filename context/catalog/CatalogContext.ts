@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { ProductsResponseProduct } from '@/interfaces';
+import { ProductsResponseProduct } from '../../interfaces';
 
 export interface CatalogContextProps {
     isLoading: boolean;

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CatalogContext } from '@/context';
+import { CatalogContext } from '../../context';
 import { ProductCard } from './ProductCard';
 import { Box } from '@mui/material';
 
@@ -24,7 +24,7 @@ export const Catalog = () => {
                     <ProductCard key={product.id} product={product} />
                 ))
             ) : (
-                <div></div>
+                <div>Cargando...</div>
             )}
         </Box>
     )

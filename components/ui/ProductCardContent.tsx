@@ -59,11 +59,9 @@ export const ProductCardContent = ({
             )}
             <Typography
                 variant="body2"
-                color="text.secondary"
                 align="center"
-                sx={{
-                    color: pricePrevious ? '#dc817e' : '#59595b',
-                }}
+                color={pricePrevious ? "error" : "inherit"}
+                data-testid="card-content-price"
             >
                 {priceCurrent} €
             </Typography>

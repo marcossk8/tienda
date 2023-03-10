@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { ProductsResponseProduct } from '@/interfaces';
+import { ProductsResponseProduct } from '../../interfaces';
 import { CatalogContext } from './CatalogContext';
 import { catalogReducer } from './catalogReducer';
 import { GET_CATALOG, SORT_OR_FILTER_CATALOG } from './constants';

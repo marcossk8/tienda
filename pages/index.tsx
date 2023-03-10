@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react';
 import { GetStaticProps } from 'next';
-import { CatalogContext } from '@/context';
-import { asosApi } from '@/api';
-import { ProductsResponse, ProductsResponseProduct } from '@/interfaces';
-import { Layout } from '@/components/layouts';
-import { Catalog, NavBarFilters, NoResultsFound } from '@/components/ui';
+import { CatalogContext } from '../context';
+import { asosApi } from '../api';
+import { ProductsResponse, ProductsResponseProduct } from '../interfaces';
+import { Layout } from '../components/layouts';
+import { Catalog, NavBarFilters, NoResultsFound } from '../components/ui';
 
 interface Props {
     resultProducts: ProductsResponseProduct[];

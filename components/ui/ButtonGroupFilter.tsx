@@ -1,11 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Add, Remove } from '@mui/icons-material';
 import { Button, ButtonGroup } from '@mui/material';
-import { CatalogContext } from '@/context';
-import { orderProducts } from '@/utilities';
+import { CatalogContext } from '../../context';
+import { orderProducts } from '../../utilities';
 
 export const ButtonGroupFilter = () => {
     const { products, sortOrFilterProducts } = useContext(CatalogContext)
+    const [ activeButton, setActiveButton ] = useState('')
 
     const handleSortPrice = (key: 'minor' | 'major') => {
         products.sort((a, b) => {
@@ -14,6 +15,7 @@ export const ButtonGroupFilter = () => {
             return orderProducts[key].func(aAux, bAux)
         })
         sortOrFilterProducts(products)
+        setActiveButton(key)
     }
 
     return (
@@ -22,10 +24,18 @@ export const ButtonGroupFilter = () => {
             size="medium"
             aria-label="small button group"
         >
-            <Button endIcon={<Remove />} onClick={() => handleSortPrice('minor')}>
+            <Button
+                endIcon={<Remove />}
+                variant={activeButton === 'minor' ? 'contained' : 'outlined'}
+                onClick={() => handleSortPrice('minor')}
+            >
                 Menor precio
             </Button>
-            <Button endIcon={<Add />} onClick={() => handleSortPrice('major')}>
+            <Button
+                endIcon={<Add />}
+                variant={activeButton === 'major' ? 'contained' : 'outlined'}
+                onClick={() => handleSortPrice('major')}
+            >
                 Mayor precio
             </Button>
         </ButtonGroup>

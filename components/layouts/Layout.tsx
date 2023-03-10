@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 
 interface Props {
     title?: string;
-    children?: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export const Layout: React.FC<Props> = ({ title = 'Products', children }) => {

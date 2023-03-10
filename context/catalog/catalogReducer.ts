@@ -1,4 +1,4 @@
-import { ProductsResponseProduct } from '@/interfaces';
+import { ProductsResponseProduct } from '../../interfaces';
 import { CatalogState } from './CatalogProvider';
 import { GET_CATALOG, SORT_OR_FILTER_CATALOG } from './constants';
 
